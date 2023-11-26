@@ -1,0 +1,52 @@
+<html>
+    
+    <body>
+
+    <h2> Student Registration</h2>
+
+    <form id="registrationForm" onsubmit= "return validateForm()">
+    <label for="firstName"> firstName:</label>
+    <input type="text"  id="firstName"name="firstName" required>
+
+    <label for="lastName"> lastName</label>
+    <input type="text"  id="lastName"  name="lastName" required>
+
+    <label for="age"> Age:</label>
+    <input type="number"  id="age" name="age" required>
+    
+    <button type="submit"> Submit</button>
+    </form>
+
+    <div id="error-message"></div>
+
+    <script>
+        function validateForm() {
+            var firstName=document.getElementById("firstName").value;
+            var lastName=document.getElementById("lastName").value;
+            var age=document.getElementById("age").value;
+
+            var nameRegex = /^[a-zA-Z]+$/;
+
+            if(!nameRegex.test(firstName)){
+                displayError(" firstName should be contain  only alphabet");
+                return false;
+            }
+            
+            if (!nameRegex.test(lastName)){
+                displayError("lastName should be contain  only  alphabet");
+                return false;
+            }
+            if (age < 18 || age > 50 ){
+                displayError("age should be between  18 and 50 only");
+                return false;
+            }
+            return true;
+        }
+               function displayError(message){
+                var errorMessageElement = document.getElementById("error-message");
+                errorMessageElement.innerHTML = message
+             }
+
+    </script>
+</body>
+</html>
