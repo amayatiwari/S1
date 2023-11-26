@@ -1,0 +1,26 @@
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+data = pd.read_csv("Iris.csv") 
+print (data.head(10))
+import pandas as pd
+import matplotlib.pyplot as plt
+iris = pd.read_csv("Iris.csv")
+plt.plot(iris.Id, iris["SepalLengthCm"], "r--")
+plt.show
+iris.plot(kind ="scatter",
+  x ='SepalLengthCm',
+  y ='PetalLengthCm')
+plt.grid()
+# Seaborne
+import seaborn as sns
+iris = sns.load_dataset('iris')
+ # style used as a theme of graph 
+# for example if we want black 
+# graph with grid then write "darkgrid"
+sns.set_style("whitegrid")
+ # sepal_length, petal_length are iris
+# feature data height used to define
+# Height of graph whereas hue store the
+# class of iris dataset.
+sns.FacetGrid(iris, hue ="species",   height = 6).map(plt.scatter, 'sepal_length', 'petal_length')
